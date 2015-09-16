@@ -8,8 +8,8 @@ Vote.delete_all
 users = 10.times.map do
   User.create!( :first_name => Faker::Name.first_name,
                 :last_name  => Faker::Name.last_name,
-                :email      => Faker::Email.email,
-                :password   => 'password' 
+                :email      => Faker::Internet.email,
+                :password   => 'password',
                 :city      => Faker::Address.city,
                 :description => Faker::Company.bs )
 end
