@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
+  include BCrypt
   has_many :questions
   has_many :answers
 
   validates :email, :hashed_password, presence: true
   validates :email, uniqueness: true
-  include BCrypt
 
   def password
     @password ||= Password.new(hashed_password)
@@ -18,6 +18,5 @@ class User < ActiveRecord::Base
   def authenticate(given_password)
   	self.password == given_password
   end
-
 
 end
