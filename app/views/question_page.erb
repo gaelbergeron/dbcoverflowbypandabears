@@ -36,6 +36,10 @@
         <span div="answer-description"><%= answer.description%></span>
         <span div="answer-date">Created at <%= answer.created_at.strftime("%m/%d/%Y") %></span>
 
+
+    <%= erb :_answer, locals: { answer: answer} %>
+
+
         <!-- BELOW: coordinate route link with slice 4  -->
 
         Total votes: <span id="total-answer-votes"><%= answer.all_votes %></span>
