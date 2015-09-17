@@ -1,8 +1,3 @@
-#home page
-get '/' do
-  redirect "/users"
-end
-
 get '/users' do
   erb :'login/index'
 end
