@@ -1,0 +1,29 @@
+<%= erb :_header %>
+
+<section id="question-container">
+  <div id="question-header">
+    <p>
+    <span id="question-title"><%= @question.title %></span>
+    <%  %>
+    <span id="question-author"><%= @question.user.first_name%></span>
+    <span id="question-date">Created at <%= @question.created_at.strftime("%m/%d/%Y") %></span>
+    </p>
+    <!-- BELOW: coordinate route link with slice 4  -->
+    <a href='/question/<%=question.id %>/vote' class="vote-button"></a>
+  </div>
+  <div id="question-description">
+    <p><%= @question.description %></p>
+  </div>
+</section>
+
+<h3>Answer</h3>
+<section id="answer-container">
+ <div id = "answers">
+ <% @question.@answers.each do |answer| %>
+    <span div="answer-description"><%= answer.description%></span>
+    <span div="answer-date">Created at <%= @answer.created_at.strftime("%m/%d/%Y") %></span>
+
+    <!-- BELOW: coordinate route link with slice 4  -->
+    <a href='/answers/<%=answer.id %>/vote' class="vote-button"></a>
+ </div>
+</section>
