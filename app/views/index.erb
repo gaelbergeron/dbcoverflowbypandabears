@@ -11,8 +11,8 @@ Register </a>
 
 <ul>
 <% @questions.each do |question| %>
-  <li><span id="question-title"><a href ="/questions/<%question.id%>"><%= question.title %></a></span></li>
-  <li><span id="question-author"><a href ="/questions/<%question.user.id%>">Posted by <%=question.user.first_name %></a></span></li>
+  <li><span id="question-title"><a href ="/questions/<%= question.id%>"><%= question.title %></a></span></li>
+  <li><span id="question-author"><a href ="/questions/<%= question.user.id%>">Posted by <%=question.user.first_name %></a></span></li>
   <li><span id="number-answers"><%=question.answers.length %> answers</span></li>
   <li><span id="number-votes"><%=question.votes.length %> votes</span></li>
   <li><span id="question-date">Created at <%=question.created_at.strftime("%m/%d/%Y") %></span></li>
