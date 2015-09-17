@@ -37,9 +37,8 @@ end
 
 
 get '/questions/:question_id' do
-  p params[:question_id]
   @question =  Question.find(params[:question_id])
-  erb :'question_page'
+  erb :question_page
 end
 
 post '/questions/:question_id/vote' do
