@@ -32,10 +32,16 @@ get '/questions/:question_id' do
   erb :'question_page'
 end
 
-get '/questions/:question_id/vote' do
-  question = Question.find(params[:question_id])
-  question.votes.create({votable_id: votes[votable_id]+1, votable_type: "question"})
-  question.
+post '/questions/:question_id/vote' do
+  if request.xhr?
+    question = Question.find(params[:question_id])
+    question.votes.create({value: 1, votable_type: "question"})
+    # p ""
+    points = question.votes.count
+    return points.to_json
+  else
+    redirect "/questions/#{question.id}"
+  end
 end
 
 

@@ -9,7 +9,8 @@
     <span id="question-date">Created at <%= @question.created_at.strftime("%m/%d/%Y") %></span>
     </p>
     <!-- BELOW: coordinate route link with slice 4  -->
-    <a href='/questions/<%=@question.id %>/vote' class="vote-button"></a>
+    <span id="total-votes"><%= @question.all_votes %></span>
+    <a href='/questions/<%=@question.id %>/vote' class="vote-button">Up Vote</a>
   </div>
   <div id="question-description">
     <p><%= @question.description %></p>
