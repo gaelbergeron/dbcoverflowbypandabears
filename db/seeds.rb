@@ -28,5 +28,5 @@ answers = 10.times.map do
                 :question_id => rand(10) + 1,
                 :user_id => rand(10) + 1
                 )
-
+end
 
