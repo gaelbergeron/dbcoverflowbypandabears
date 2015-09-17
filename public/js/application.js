@@ -27,4 +27,17 @@ $(document).ready(function () {
       $(answer_obj).find("#total-answer-votes").html(data.points)
     });
   });
+
+submitAnswer();
+
 });
+
+
+var submitAnswer = function(){
+  $('form').on('submit', function(event){
+    event.preventDefault();
+    console.log('sucess');
+    url = $(this).attr('action');
+
+  });
+};
