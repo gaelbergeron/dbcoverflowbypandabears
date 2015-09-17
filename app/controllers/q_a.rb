@@ -17,6 +17,14 @@ end
 # 	erb :'new_answer'
 # end
 
+
+# #save new answer to db
+# post '/answers' do
+# 	answer = Answer.new(params)
+# 	answer.save
+# 	redirect "SEND ME TO SOME PAGE"
+# end
+
 #save new answer to db
 post '/questions/:qid/answers' do
   answer = Answer.create({
@@ -31,6 +39,17 @@ get '/questions/:question_id' do
   p params[:question_id]
   @question =  Question.find(params[:question_id])
   erb :'question_page'
+end
+
+post '/questions/:question_id/vote' do
+  if request.xhr?
+    question = Question.find(params[:question_id])
+    question.votes.create({value: 1, votable_type: "question"})
+    points = question.votes.count
+    return {points: points}.to_json
+  else
+    redirect "/questions/#{question.id}"
+  end
 end
 
 
