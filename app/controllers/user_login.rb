@@ -15,9 +15,6 @@ end
 #activate the session
 post '/users/session' do
   user = User.find_by_email(params[:email])
-  # what if i entered the wrong email? XXX
-  # what if i entered the wrong password but the right email? XXX
-    # step 1: how to check correct password?
   if user.nil?
     redirect '/users/login'
   elsif user.password == params[:password]
@@ -26,9 +23,7 @@ post '/users/session' do
   else
     redirect '/users/login'
   end
-
 end
-
 
 #new user page
 get '/users/new' do
@@ -48,4 +43,6 @@ end
 
 #logout 
 get '/users/logout' do
+	session[:user_id] = nil
+	redirect "/"
 end

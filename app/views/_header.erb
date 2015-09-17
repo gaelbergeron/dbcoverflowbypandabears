@@ -1,4 +1,9 @@
-_header.erb
+<button> <a href="/users/login"> Login </a> </button>
+<br>
+<button><a href="/users/new"> Register </a></button>
+</br> 
 
 
-THIS IS HEADER THING 
+<% if session[:user_id] != nil %>
+<button><a href="/users/logout">Logout </a></button>
+<% end %> 
