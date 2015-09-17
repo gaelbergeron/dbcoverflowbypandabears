@@ -27,12 +27,22 @@ end
 
 #save new answer to db
 post '/questions/:qid/answers' do
-  answer = Answer.create({
+  answer = Answer.new({
     "description" => params[:description],
     "user_id" => session[:user_id],
     "question_id" => params[:qid]
   })
-	redirect "/questions/#{params[:qid]}"
+
+  if answer.save
+    if request.xhr?
+      erb :_answer, layout: false, locals: {answer: answer}
+    else
+      redirect "/questions/#{params[:qid]}"
+    end
+  else
+    erb :'question_page'
+  end
+
 end
 
 

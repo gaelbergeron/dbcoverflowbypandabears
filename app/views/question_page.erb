@@ -23,16 +23,9 @@
 <section id="answer-container">
  <ul id="answers">
  <% @question.answers.each do |answer| %>
-    <article id="answer<%= answer.id %>">
-      <li>
-        <span div="answer-description"><%= answer.description%></span>
-        <span div="answer-date">Created at <%= answer.created_at.strftime("%m/%d/%Y") %></span>
 
-        <!-- BELOW: coordinate route link with slice 4  -->
-        Total votes: <span id="total-answer-votes"><%= answer.all_votes %></span>
-        <a href='/answers/<%=answer.id %>/vote' class="vote-answer-button">Up Vote!</a>
-      </li>
-    </article>
+    <%= erb :_answer, locals: { answer: answer} %>
+
   <% end %>
  </div>
 </section>
