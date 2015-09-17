@@ -9,13 +9,16 @@ Register </a>
 
 <h2>Welcome home!</h2>
 
+<ul>
 <% @questions.each do |question| %>
-  <span id="question-title"><a href ="/questions/<%question.id%>"><%= question.title %></a></span>
-  <span id="question-author"><a href ="/questions/<%question.user.user_id%>">Posted by <%=question.user.first_name %></a></span>
-  <span id="number-answers"><%=question.answers.length %> answers</span>
-  <span id="number-votes"><%=question.votes.length %> votes</span>
-  <span id="question-date">Created at <%=question..created_at.strftime("%m/%d/%Y") %></span>
+  <li><span id="question-title"><a href ="/questions/<%= question.id%>"><%= question.title %></a></span></li>
+  <li><span id="question-author"><a href ="/questions/<%= question.user.id%>">Posted by <%=question.user.first_name %></a></span></li>
+  <li><span id="number-answers"><%=question.answers.length %> answers</span></li>
+  <li><span id="number-votes"><%=question.votes.length %> votes</span></li>
+  <li><span id="question-date">Created at <%=question.created_at.strftime("%m/%d/%Y") %></span></li>
 <% end %>
+</ul>
+
 
   <!-- BELOW: coordinate route with slice 3 -->
 <% if @current_user %>
