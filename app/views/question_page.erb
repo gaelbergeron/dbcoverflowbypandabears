@@ -11,8 +11,8 @@
 
 
     <% if logged_in? %>
-      <a href='/questions/<%=@question.id %>/down_vote' class="vote-question-button-down">down</a>
-    <a href='/questions/<%=@question.id %>/up_vote' class="vote-question-button-up">&uarr;</a>
+      <a href='/questions/<%=@question.id %>/down_vote' class="question-vote">down</a>
+    <a href='/questions/<%=@question.id %>/up_vote' class="question-vote">&uarr;</a>
     <% end %>
   </div>
   <div id="question-description">
@@ -36,8 +36,8 @@
 
 
         <% if logged_in? %>
-        <a href='/answers/<%=answer.id %>/up_vote' class="vote-answer-button-up">&uarr;</a>
-        <a href='/answers/<%=answer.id %>/down_vote' class="vote-answer-button-down">down</a>
+        <a href='/answers/<%=answer.id %>/up_vote' class="answer-vote">&uarr;</a>
+        <a href='/answers/<%=answer.id %>/down_vote' class="answer-vote">down</a>
         <% end %>
 
       </li>
