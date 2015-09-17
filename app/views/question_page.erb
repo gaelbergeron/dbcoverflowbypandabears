@@ -36,8 +36,8 @@
 
 
         <% if logged_in? %>
-
         <a href='/answers/<%=answer.id %>/up_vote' class="vote-answer-button-up">&uarr;</a>
+        <a href='/answers/<%=answer.id %>/down_vote' class="vote-answer-button-down">down</a>
         <% end %>
 
       </li>
