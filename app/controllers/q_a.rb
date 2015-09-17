@@ -3,4 +3,3 @@ get '/questions/:question_id' do
   @answers = Answer.all
   erb :'q_a'
 end
-
