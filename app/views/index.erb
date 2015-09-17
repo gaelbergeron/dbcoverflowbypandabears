@@ -3,23 +3,20 @@
 <h2>Welcome home!</h2>
 
 <% @questions.each do |question| %>
-<ul>
-  <li><span id="question-title"><a href ="/questions/<%= question.id%>"><%= question.title %></a></span></li>
-  <li><span id="question-author"><a href ="/questions/<%= question.user.id%>">Posted by <%=question.user.first_name %></a></span></li>
-  <li><span id="number-answers"><%=question.answers.length %> answers</span></li>
-  <li><span id="number-votes"><%=question.votes.length %> votes</span></li>
-  <li><span id="question-date">Created at <%=question.created_at.strftime("%m/%d/%Y") %></span></li>
-</ul>
+  <div id="question-summary">
+    <div id="question-title"><a id="title-link" href ="/questions/<%= question.id%>"><%= question.title %></a></div>
+    <div id="number-answers"><%=question.answers.length %> answers</div>
+    <div id="number-votes"><%=question.votes.length %> votes</div>
+    <div id="question-author"><span>Asked by </span><a id="author-link" href ="/questions/<%= question.user.id%>"><%=question.user.first_name %></a></div>
+    <div id="question-date">Created on <%=question.created_at.strftime("%m/%d/%Y") %></div>
+  </div>
 <% end %>
- <!-- PLaceholder -->
 
 
-  <!-- BELOW: coordinate route with slice 3 -->
 <% if current_user %>
-  <button> <a href="/questions/new">Ask a question</a></button>
+  <a href="/questions/new" class="bottom-right-button">Ask a question</a>
 <% else %>
-  <!-- BELOW: coordinate routes with slice 1 -->
-  <button id="login-button" href="/users/login">Login to ask a question</button>
-    <span>or</span>
-  <button id="sign-up-button" href="/users/new">Sign up (event better)</button>
+  <a href="/users/new" class="bottom-right-button">or Sign up (even better!)</a>
+  <a href="/users/login" class="bottom-right-button">Login to ask a question</a>
+
 <%end%>

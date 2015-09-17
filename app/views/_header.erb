@@ -1,12 +1,11 @@
-<!--  -->
-<h1>DBCOverflow</h1>
-
-<button id="home-button"><a href="/">Home </a></button>
+<div id="main-header"></div>
+<h1 id="logo">DBCOverflow</h1>
 
 <% if current_user %>
-  <button id="logout-button"><a href="/users/logout">Logout </a></button>
-  <button id="profile-button"><a href="/profiles/<%=@user.id%>">My Profile </a></button>
+  <a href="/users/logout" class="right-button" >Logout</a>
+  <a href="/profiles/<%=@user.id%>" class="right-button" >My Profile</a>
+  <a href="/" class="right-button">Home</a>
 <% else %>
-  <button id="login-button"><a href="/users/login"> Login </a> </button>
-  <button id="register-button"><a href="/users/new"> Register </a></button>  
+  <a href="/users/login" class="right-button">Login</a>
+  <a href="/users/new" class="right-button">Register</a>
 <% end %>
