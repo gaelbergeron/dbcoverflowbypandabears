@@ -1,9 +1,9 @@
-<p>
+<p class='clear'>
   <div>
-    <%=@user.first_name %> <%=@user.last_name %>
+    <h4><%=@user.first_name %> <%=@user.last_name %></h4>
   </div>
   <div>
-    Description: <%=@user.description%>
+    About Me: <%=@user.description%>
   </div>
   <div>
     Member since <%=@user.created_at%>
@@ -11,7 +11,7 @@
 </p>
 
 <p class="subtitle">
-  Questions
+  <h5>Questions</h5>
 </p>
 
 <ul class="questions">
@@ -23,7 +23,7 @@
 </ul>
 
 <p class="subtitle">
-  Answers
+  <h5>Answers</h5>
 </p>
 
 <ul class="answers">
