@@ -26,6 +26,10 @@ a:link {
   margin-left: 5em;
 }
 
+#logo a:visited {
+  color: #000000;
+}
+
 .right-button {
   float: right;
   width: 7em;
