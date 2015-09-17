@@ -14,16 +14,19 @@ users = 10.times.map do
                 :description => Faker::Company.bs )
 end
 
+
 questions = 10.times.map do
-  Question.create!( 
+  Question.create!(
                 :title => Faker::Name.title,
+                :user_id => rand(10) + 1,
                 :description => Faker::Company.bs )
 end
 
 answers = 10.times.map do
-  Answer.create!( 
-                :description => Faker::Company.bs )
-end
-
+  Answer.create!(
+                :description => Faker::Company.bs,
+                :question_id => rand(10) + 1,
+                :user_id => rand(10) + 1
+                )
 
 
