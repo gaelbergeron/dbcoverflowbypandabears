@@ -12,19 +12,6 @@ post '/questions' do
   redirect "/"
 end
 
-# #create a new answer
-# get '/answers/new' do
-#   erb :'new_answer'
-# end
-
-
-# #save new answer to db
-# post '/answers' do
-# 	answer = Answer.new(params)
-# 	answer.save
-# 	redirect "SEND ME TO SOME PAGE"
-# end
-
 #save new answer to db
 post '/questions/:qid/answers' do
   answer = Answer.create({
@@ -42,7 +29,20 @@ get '/questions/:question_id' do
   erb :'question_page'
 end
 
-post '/questions/:question_id/vote' do
+post '/questions/:question_id/down_vote' do
+  p params
+  p "hit route"
+  if request.xhr?
+    question = Question.find(params[:question_id])
+    p question.votes.delete(Vote.last)
+    points = question.votes.count
+    return {points: points}.to_json
+  else
+    redirect "/questions/#{question.id}"
+  end
+end
+
+post '/questions/:question_id/up_vote' do
   if request.xhr?
     question = Question.find(params[:question_id])
     question.votes.create({question_value: 1, votable_type: "question"})
@@ -53,7 +53,7 @@ post '/questions/:question_id/vote' do
   end
 end
 
-post '/answers/:answer_id/vote' do
+post '/answers/:answer_id/up_vote' do
   if request.xhr?
     answer = Answer.find(params[:answer_id])
     answer.votes.create({answer_value: 1, votable_type: "answer"})
@@ -63,6 +63,4 @@ post '/answers/:answer_id/vote' do
     redirect "/questions/#{question.id}"
   end
 end
-
-
 

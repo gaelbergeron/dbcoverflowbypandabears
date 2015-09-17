@@ -10,7 +10,9 @@
     </p>
     <!-- BELOW: coordinate route link with slice 4  -->
     Total votes: <span id="total-question-votes"><%= @question.all_votes %></span>
-    <a href='/questions/<%=@question.id %>/vote' class="vote-question-button">Up Vote</a>
+    <a href='/questions/<%=@question.id %>/down_vote' class="vote-question-button-down">down</a>
+    <a href='/questions/<%=@question.id %>/up_vote' class="vote-question-button-up">&uarr;</a>
+
   </div>
   <div id="question-description">
     <p><%= @question.description %></p>
@@ -30,7 +32,8 @@
 
         <!-- BELOW: coordinate route link with slice 4  -->
         Total votes: <span id="total-answer-votes"><%= answer.all_votes %></span>
-        <a href='/answers/<%=answer.id %>/vote' class="vote-answer-button">Up Vote!</a>
+        <a href='/answers/<%=answer.id %>/up_vote' class="vote-answer-button-up">&uarr;</a>
+
       </li>
     </article>
   <% end %>
