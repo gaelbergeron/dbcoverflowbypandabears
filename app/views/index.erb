@@ -15,11 +15,11 @@
 
 
   <!-- BELOW: coordinate route with slice 3 -->
-<% if @current_user %>
-  <button href="/questions/new">Ask a question</button>
+<% if current_user %>
+  <button> <a href="/questions/new">Ask a question</a></button>
 <% else %>
   <!-- BELOW: coordinate routes with slice 1 -->
   <button id="login-button" href="/users/login">Login to ask a question</button>
     <span>or</span>
-  <button id="sign-up-button" href="/users/signup">Sign up (event better)</button>
+  <button id="sign-up-button" href="/users/new">Sign up (event better)</button>
 <%end%>
