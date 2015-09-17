@@ -2,15 +2,16 @@
 
 <h2>Welcome home!</h2>
 
-<ul>
 <% @questions.each do |question| %>
+<ul>
   <li><span id="question-title"><a href ="/questions/<%= question.id%>"><%= question.title %></a></span></li>
   <li><span id="question-author"><a href ="/questions/<%= question.user.id%>">Posted by <%=question.user.first_name %></a></span></li>
   <li><span id="number-answers"><%=question.answers.length %> answers</span></li>
   <li><span id="number-votes"><%=question.votes.length %> votes</span></li>
   <li><span id="question-date">Created at <%=question.created_at.strftime("%m/%d/%Y") %></span></li>
-<% end %>
 </ul>
+<% end %>
+ <!-- PLaceholder -->
 
 
   <!-- BELOW: coordinate route with slice 3 -->
