@@ -45,7 +45,7 @@ end
 post '/questions/:question_id/vote' do
   if request.xhr?
     question = Question.find(params[:question_id])
-    question.votes.create({value: 1, votable_type: "question"})
+    question.votes.create({question_value: 1, votable_type: "question"})
     points = question.votes.count
     return {points: points}.to_json
   else
@@ -53,6 +53,16 @@ post '/questions/:question_id/vote' do
   end
 end
 
+post '/answers/:answer_id/vote' do
+  if request.xhr?
+    answer = Answer.find(params[:answer_id])
+    answer.votes.create({answer_value: 1, votable_type: "answer"})
+    points = answer.votes.count
+    return {points: points, id: answer.id}.to_json
+  else
+    redirect "/questions/#{question.id}"
+  end
+end
 
 
 

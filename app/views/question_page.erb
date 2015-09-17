@@ -9,8 +9,8 @@
     <span id="question-date">Created at <%= @question.created_at.strftime("%m/%d/%Y") %></span>
     </p>
     <!-- BELOW: coordinate route link with slice 4  -->
-    Total votes: <span id="total-votes"><%= @question.all_votes %></span>
-    <a href='/questions/<%=@question.id %>/vote' class="vote-button">Up Vote</a>
+    Total votes: <span id="total-question-votes"><%= @question.all_votes %></span>
+    <a href='/questions/<%=@question.id %>/vote' class="vote-question-button">Up Vote</a>
   </div>
   <div id="question-description">
     <p><%= @question.description %></p>
@@ -23,13 +23,16 @@
 <section id="answer-container">
  <ul id="answers">
  <% @question.answers.each do |answer| %>
-    <li>
-      <span div="answer-description"><%= answer.description%></span>
-      <span div="answer-date">Created at <%= answer.created_at.strftime("%m/%d/%Y") %></span>
+    <article id="answer<%= answer.id %>">
+      <li>
+        <span div="answer-description"><%= answer.description%></span>
+        <span div="answer-date">Created at <%= answer.created_at.strftime("%m/%d/%Y") %></span>
 
-      <!-- BELOW: coordinate route link with slice 4  -->
-      <a href='/answers/<%=answer.id %>/vote' class="vote-button"></a>
-    </li>
+        <!-- BELOW: coordinate route link with slice 4  -->
+        Total votes: <span id="total-answer-votes"><%= answer.all_votes %></span>
+        <a href='/answers/<%=answer.id %>/vote' class="vote-answer-button">Up Vote!</a>
+      </li>
+    </article>
   <% end %>
  </div>
 </section>

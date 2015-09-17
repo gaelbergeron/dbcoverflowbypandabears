@@ -4,7 +4,7 @@ class Question < ActiveRecord::Base
   has_many :votes, as: :votable
 
   def all_votes
-    votes.sum(:value)
+    votes.sum(:question_value)
   end
 
 end
