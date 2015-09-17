@@ -29,4 +29,3 @@ answers = 10.times.map do
                 :user_id => rand(10) + 1
                 )
 end
-
