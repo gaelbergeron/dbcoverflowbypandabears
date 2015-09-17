@@ -1,6 +1,5 @@
 get '/profiles/:id' do
   # @users = User.all
-  @users = User.
-  p @users
+  @user = User.find(params[:id])
   erb :profile
 end
