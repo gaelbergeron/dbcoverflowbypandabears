@@ -4,8 +4,10 @@ get '/questions/new' do
 end
 
 #save new question to db
-post 'users/:id/questions' do
+post '/questions' do
+  params[:user_id] = session[:user_id]
 	question = Question.new(params)
+
 	question.save 
 	redirect "/"
 end 
@@ -24,7 +26,8 @@ end
 
 
 get '/questions/:question_id' do
-  @questions =  Question.find(params[:question_id])
+  p params[:question_id]
+  @question =  Question.find(params[:question_id])
   @answers = Answer.all
   erb :'question_page'
 end
