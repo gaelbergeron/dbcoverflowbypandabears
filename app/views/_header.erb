@@ -1,9 +1,12 @@
-<button> <a href="/users/login"> Login </a> </button>
-<br>
-<button><a href="/users/new"> Register </a></button>
-</br> 
+<!--  -->
+<h1>DBCOverflow</h1>
 
+<button id="home-button"><a href="/">Home </a></button>
 
-<% if session[:user_id] != nil %>
-<button><a href="/users/logout">Logout </a></button>
-<% end %> 
+<% if current_user %>
+  <button id="logout-button"><a href="/users/logout">Logout </a></button>
+  <button id="profile-button"><a href="/profiles/<%=@user.id%>">My Profile </a></button>
+<% else %>
+  <button id="login-button"><a href="/users/login"> Login </a> </button>
+  <button id="register-button"><a href="/users/new"> Register </a></button>  
+<% end %>
