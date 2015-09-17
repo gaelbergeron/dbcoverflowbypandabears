@@ -36,9 +36,8 @@ post '/questions/:question_id/vote' do
   if request.xhr?
     question = Question.find(params[:question_id])
     question.votes.create({value: 1, votable_type: "question"})
-    # p ""
     points = question.votes.count
-    return points.to_json
+    return {points: points}.to_json
   else
     redirect "/questions/#{question.id}"
   end
