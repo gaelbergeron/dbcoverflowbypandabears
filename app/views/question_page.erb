@@ -26,10 +26,8 @@
 <section id="answer-container">
  <ul id="answers">
  <% @question.answers.each do |answer| %>
-    <article id="answer<%= answer.id %>">
-      <li>
-        <span div="answer-description"><%= answer.description%></span>
-        <span div="answer-date">Created at <%= answer.created_at.strftime("%m/%d/%Y") %></span>
+
+    <%= erb :_answer, locals: { answer: answer} %>
 
         <!-- BELOW: coordinate route link with slice 4  -->
         Total votes: <span id="total-answer-votes"><%= answer.all_votes %></span>
@@ -47,11 +45,16 @@
 </section>
 
 <% if logged_in? %>
-  <h3>Post New Answer</h3>
+  <div class="col-md-2"></div><div class="col-md-8"><h3>Post New Answer</h3></div><div class="col-md-2"></div>
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+  <div class="form-group">
   <section id="new-answer-container">
     <form method="post" action="/questions/<%=@question.id%>/answers">
-      <input type="text" name="description">
+      <textarea class="form-control" rows="3" name="description" placeholder="Post your answer here"></textarea>
       <input type="submit" value="Submit">
     </form>
   </section>
+</div></div>
+<div class="col-md-2"></div>
 <% end %>
