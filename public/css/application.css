@@ -143,6 +143,8 @@ h4 {
   width: 6em;
   margin-left: 3em;
   margin-top: -3em;
+  margin-bottom: 2em;
+  padding-top: 2.1em;
 }
 
 #login-container {
@@ -150,4 +152,18 @@ h4 {
   height: 10em;
   margin: auto;
   background-color: #9ea3a9;
+  border-radius: 10px;
+}
+
+#signup-input {
+  width: 11em;
+  margin-top: 0.5em;
+  background-color: black;
+  border-style: none;
+  color: #fff;
+  border-radius: 5px;
+}
+
+#password-input {
+  margin-top: 0.5em;
 }
