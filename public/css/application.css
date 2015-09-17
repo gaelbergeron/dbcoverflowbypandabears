@@ -1,1 +1,10 @@
 /*CSS to write here !!! */
+
+h1 {
+  color: red;
+}
+
+* {
+  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
