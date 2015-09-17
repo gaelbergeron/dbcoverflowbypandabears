@@ -4,23 +4,23 @@ get '/questions/new' do
 end
 
 #save new question to db
-post '/questions' do
+post 'users/:id/questions' do
 	question = Question.new(params)
 	question.save 
 	redirect "/"
 end 
 
-#create a new answer 
-get '/answers/new' do
-	erb :'new_answer'
-end
+# #create a new answer 
+# get '/answers/new' do
+# 	erb :'new_answer'
+# end
 
-#save new answer to db 
-post '/answers' do
-	answer = Answer.new(params)
-	answer.save
-	redirect "SEND ME TO SOME PAGE"
-end
+# #save new answer to db 
+# post '/answers' do
+# 	answer = Answer.new(params)
+# 	answer.save
+# 	redirect "SEND ME TO SOME PAGE"
+# end
 
 
 get '/questions/:question_id' do
@@ -28,3 +28,7 @@ get '/questions/:question_id' do
   @answers = Answer.all
   erb :'question_page'
 end
+
+
+
+
