@@ -105,8 +105,8 @@ a:link {
 }
 #question-date {
   display: inline-block;
-  width: 12em;
-  font-size: 16px;
+  width: 11em;
+  font-size: .9em;
   font-weight: 300;
   color: #777;
 }
@@ -162,4 +162,8 @@ a:link {
 
 #password-input {
   margin-top: 0.5em;
+}
+
+.no-bullet {
+  list-style: none;
 }

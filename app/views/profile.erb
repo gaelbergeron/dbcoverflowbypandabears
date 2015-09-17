@@ -14,7 +14,7 @@
   <h5>Questions</h5>
 </p>
 
-<ul class="questions">
+<ul class="questions no-bullet">
   <% @user.questions.each do |question| %>
     <li>
       <span class="votes"> <%=question.votes.length%></span> | <a href="/questions/<%=question.id%>"> <%=question.title%></a>
@@ -26,7 +26,7 @@
   <h5>Answers</h5>
 </p>
 
-<ul class="answers">
+<ul class="answers no-bullet">
   <% @user.answers.each do |answer| %>
     <li>
       <span class="votes"> <%=answer.votes.length%></span> | <a href="/questions/<%=answer.question.id%>"><%=answer.description%></a>
