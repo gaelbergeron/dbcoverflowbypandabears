@@ -19,15 +19,25 @@
 
 <!-- Placeholder -->
 
-<h3>Answer</h3>
+<h3>Answers</h3>
 <section id="answer-container">
- <div id = "answers">
+ <ul id="answers">
  <% @question.answers.each do |answer| %>
-    <span div="answer-description"><%= answer.description%></span>
-    <span div="answer-date">Created at <%= answer.created_at.strftime("%m/%d/%Y") %></span>
+    <li>
+      <span div="answer-description"><%= answer.description%></span>
+      <span div="answer-date">Created at <%= answer.created_at.strftime("%m/%d/%Y") %></span>
 
-    <!-- BELOW: coordinate route link with slice 4  -->
-    <a href='/answers/<%=answer.id %>/vote' class="vote-button"></a>
+      <!-- BELOW: coordinate route link with slice 4  -->
+      <a href='/answers/<%=answer.id %>/vote' class="vote-button"></a>
+    </li>
   <% end %>
  </div>
+</section>
+
+<h3>Post New Answer</h3>
+<section id="new-answer-container">
+  <form method="post" action="/questions/<%=@question.id%>/answers">
+    <input type="text" name="description">
+    <input type="submit" value="Submit">
+  </form>
 </section>

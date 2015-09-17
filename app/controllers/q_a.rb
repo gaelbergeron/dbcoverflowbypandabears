@@ -17,6 +17,7 @@ end
 # 	erb :'new_answer'
 # end
 
+
 # #save new answer to db
 # post '/answers' do
 # 	answer = Answer.new(params)
@@ -24,11 +25,19 @@ end
 # 	redirect "SEND ME TO SOME PAGE"
 # end
 
+#save new answer to db
+post '/questions/:qid/answers' do
+  answer = Answer.create({
+    "description" => params[:description],
+    "question_id" => params[:qid]
+  })
+	redirect "/questions/#{params[:qid]}"
+end
+
 
 get '/questions/:question_id' do
   p params[:question_id]
   @question =  Question.find(params[:question_id])
-  @answers = Answer.all
   erb :'question_page'
 end
 
