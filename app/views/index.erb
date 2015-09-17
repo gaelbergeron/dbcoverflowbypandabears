@@ -1,2 +1,23 @@
 <%= erb :_header %>
 
+
+<h2>Welcome home!</h2>
+
+<% @questions.each do |question| %>
+  <span id="question-title"><a href ="/questions/<%question.id%>"><%= question.title %></a></span>
+  <span id="question-author"><a href ="/questions/<%question.user.user_id%>">Posted by <%=question.user.first_name %></a></span>
+  <span id="number-answers"><%=question.answers.length %> answers</span>
+  <span id="number-votes"><%=question.votes.length %> votes</span>
+  <span id="question-date">Created at <%=question..created_at.strftime("%m/%d/%Y") %></span>
+<% end %>
+
+  <!-- BELOW: coordinate route with slice 3 -->
+<% if @current_user %>
+  <button href="/question/new">Ask a question</button>
+<% else %>
+  <!-- BELOW: coordinate routes with slice 1 -->
+  <button id="login-button" href="/users/login">Login to ask a question</button>
+    <span>or</span>
+  <button id="sign-up-button" href="/users/signup">Sign up (event better)</button>
+<%end%>
+
